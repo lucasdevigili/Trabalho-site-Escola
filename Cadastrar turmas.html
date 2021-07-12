@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Statics turmas/css/Cadastrar turmas.css">
+    <title>Turmas Cadastradas</title>
+</head>
+<body>
+    <header>
+        <h1>Turmas Cadastradas</h1>
+    </header>
+
+    <div id="turmasCadastradas" class="turmasCadastradas1">
+        <input type="button" value="Cadastrar nova turma" id="botao" class="botao1">
+            <h2>1º Ano</h2>
+            <h3 class="um">1 Ano 01</h3> 
+            <h3 class="dois">1 Ano 02</h3> 
+            <h3 class="tres">1 Ano 03</h3>    
+            <h3 class="quatro">1 Ano 04</h3> 
+            <h3 class="cinco"></h3>
+    </div>
+
+
+
+    <div id="id01" class="modal" hidden>
+        <div class="modal-content">
+            <div>
+                <span id="botaoDesaparecer">&times;</span>
+            </div>
+            
+            <form>
+                <label for="labelNumeroTurma">Numero da turma</label>
+                <input type="number" class="numeroTurma" placeholder="Digite o número da turma">
+
+                <label for="labelNomeTurma">Nome da turma</label>
+                <input type="text" class="nomeTurma" placeholder="Digite o nome da turma">
+
+                <label for="labelHorarioTurma">Horário da turma</label>
+                <input type="checkbox" class="horarioTurmaMatutino" placeholder="Matutino">
+                <input type="checkbox" class="horarioTurmaVespertino" placeholder="Vespertino">
+
+                <label for="labelRegente">Regente da turma</label>
+                <input type="text" class="regente" placeholder="Digite o regente da turma" required>
+
+                <input type="button" class="salvarTurma" value="Salvar">
+            </form>
+        </div>
+    </div>
+
+    <p id="aqui"></p>
+
+    <script src="Statics turmas/js/Cadastrar turmas.js"></script>       
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+header h1 {
+    text-align: center;
+}
+
+#turmasCadastradas {
+    margin-left: 3%;
+    margin-right: 3%;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    display: inline-flex;
+}
+
+#turmasCadastradas h2 {
+    grid-area: h2;
+    margin-right: 90px;
+    margin-left: 90px;
+}
+
+#turmasCadastradas h3 {
+    grid-area: h3;
+    margin-right: 90px;
+}
+
+.modal {
+    background-color: tomato;
+}
