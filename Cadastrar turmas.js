@@ -39,7 +39,7 @@ function salvarTurma() {
     document.querySelector("#botaoDesaparecer")
     document.querySelector("#id01").hidden = true 
     document.querySelector(".modal").style.cssText = ""
-
+    
     // Obtendo os valores do input
     let numeroTurma = +document.querySelector(".numeroTurma").value;
     let nomeTurma = document.querySelector(".nomeTurma").value;
@@ -91,7 +91,7 @@ class Turma {
 function adicionarTurma(turma) {
     const divTurma = document.createElement("div")
     divTurma.className = "turma"
-    divTurma.insertAdjacentHTML("afterbegin", `<button class = "botaoExcluir">x</button><p>Nome Turma: <a href=../Cadastrar Alunos/Cadastraralunos.html?numeroTurma=${turma.numeroTurma}>${turma.nomeTurma}</a></p><p class="numeroTurma">Número da turma: ${turma.numeroTurma}</p><p>${turma.periodoTurma}</p><p>Regente: ${turma.regente}</p><button class = "editar">Editar</button>`)    
+    divTurma.insertAdjacentHTML("afterbegin", `<button class = "botaoExcluir">x</button><p>Nome Turma: <a href=criarlinha.html?numeroTurma=${turma.numeroTurma}>${turma.nomeTurma}</a></p><p class="numeroTurma">Número da turma: ${turma.numeroTurma}</p><p>${turma.periodoTurma}</p><p>Regente: ${turma.regente}</p><button class = "editar">Editar</button>`)    
     document.querySelector("#turmas").append(divTurma)  
 }
 
@@ -99,6 +99,7 @@ function carregaTurmas() {
     const divTurmas = document.querySelector("#turmas")
     
     if (divTurmas.innerHTML) {
+        console.log("vazio")
         divTurmas.innerHTML = ""
         for (let turma of turmas) {
             adicionarTurma(turma)
@@ -108,6 +109,7 @@ function carregaTurmas() {
             adicionarTurma(turma)
         }        
     } 
+    
 }
 
 window.addEventListener("load", () => {  
@@ -117,7 +119,7 @@ window.addEventListener("load", () => {
 document.querySelector("#turmas").addEventListener("click", event => {
      if (event.target.className === "botaoExcluir") {
          event.target.closest(".turma").remove()
-
+         hidden
      }
 
      if (event.target.className === "editar") {        
@@ -137,6 +139,3 @@ function buscaTurma(numeroTurma) {
     }
 }
  
-//clique no botao editar
-//abrir póp-Api
-//

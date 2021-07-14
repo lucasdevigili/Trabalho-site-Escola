@@ -8,7 +8,7 @@ document.querySelector("#botaoDesaparecer").addEventListener("click", () => {
 })
 
 
-let alunos = JSON.parse(localStorage.getItem("alunos"))
+let alunos = JSON.parse(localStorage.getItem("alunos")) || []
 
 
 function showModal(callback, aluno) {
@@ -97,7 +97,7 @@ class Aluno {
 function adicionarAluno(aluno) {
     const divAluno = document.createElement("div")
     divAluno.className = "aluno"
-    divAluno.insertAdjacentHTML("afterbegin", `<button class = "botaoExcluir">x</button><p>Matrícula: ${aluno.matricula}</p><p>Nome: ${aluno.nomeAluno}</p><p>E-mail: ${aluno.email}</p><p>Telefone: ${aluno.telefone}</p><p>Nota 1: ${aluno.nota1}</p><p>Nota 2: ${aluno.nota2}</p><p>Nota 3: ${aluno.nota3}</p><p>Media: ${aluno.media}</p><button class = "editar">Editar</button>`)    
+    divAluno.insertAdjacentHTML("afterbegin", `<button class = "botaoExcluir">x</button><p>Matrícula: ${aluno.matricula}</p><p>Nome: ${aluno.nomeAluno}</p><p>E-mail: ${aluno.email}</p><p>Telefone: ${aluno.telefone}</p><p>Nota 1: ${aluno.nota1}</p><p>Nota 2: ${aluno.nota2}</p><p>Nota 3: ${aluno.nota3}</p><p>Media: ${aluno.media.toFixed(2)}</p><button class = "editar">Editar</button>`)    
     document.querySelector("#alunos").append(divAluno)  
 }
 
@@ -129,7 +129,7 @@ document.querySelector("#alunos").addEventListener("click", event => {
 
      if (event.target.className === "editar") {        
         const pMatricula = event.target.closest(".aluno").querySelector(".matricula")        
-        // let matricula = +pMatricula.textContent.split(":")[1]        
+        let matricula = +pMatricula.textContent.split(":")[1]        
 
         let aluno = buscaAluno(matricula)        
         showModal(editarAluno, aluno)
