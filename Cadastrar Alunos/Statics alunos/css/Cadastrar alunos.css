@@ -1,0 +1,77 @@
+header h1 {
+    text-align: center;
+}
+.botao1{
+    margin: 30px;
+    cursor: pointer;
+}
+span{
+    font-size: 30px;
+    cursor: pointer;
+
+}
+span:hover{
+    color: rgba(201, 57, 57, 0.596);
+}
+.modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.185);   
+}
+form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+.horario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+label{
+    padding: 10px;
+}
+input{
+    border: none;
+    background-color: rgba(95, 91, 91, 0.192);
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+.horarioTurmaMatutino{
+    display: flex;
+    flex-direction: column;
+}
+.salvarTurma{
+    display: block;
+    background-color: rgba(69, 69, 76, 0.582);
+    margin-top: 10px;
+    cursor: pointer;
+}
+.salvarTurma:hover{
+    background-color: rgb(136, 91, 91);
+}
+.turma {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(71, 67, 67, 0.288);
+    color: rgb(0, 0, 0);
+    justify-content: space-between;
+    margin: 10px;
+}
+.botaoExcluir{    
+    font-size: 10px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+}
+
+.editar{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

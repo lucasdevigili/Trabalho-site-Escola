@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Statics turmas/css/Cadastrar turmas.css">
+    <link rel="stylesheet" href="Statics turmas/css/Cadastrar turmas.css">
     <title>Turmas Cadastradas</title>
 </head>
 <body>
@@ -23,24 +23,31 @@
             </div>
             
             <form id="form">
-                <label for="labelNumeroTurma">Numero da turma</label>
+                <label for="labelNumeroTurma">Numero da turma:</label>
                 <input type="number" class="numeroTurma" placeholder="Digite o número da turma">
 
-                <label for="labelNomeTurma">Nome da turma</label>
+                <label for="labelNomeTurma">Nome da turma:</label>
                 <input type="text" class="nomeTurma" placeholder="Digite o nome da turma">
 
-                <label for="labelHorarioTurma">Horário da turma</label>
-                <input type="radio" class="horarioTurmaMatutino" name="periodo" placeholder="Matutino" value="Matutino">
-                <input type="radio" class="horarioTurmaVespertino" name="periodo" placeholder="Vespertino" value="Vespertino">
-
+                <p>&nbsp;&nbsp;Turno:</p>
+                <div class="horario">
+                    <input type="radio" id="matutino" class="horarioTurmaMatutino" name="periodo"  value="Matutino">
+                    <label for="matutino">Matutino</label>
+                </div>
+                <div class="horario">
+                    <input type="radio" id="vespertino" class="horarioTurmaVespertino" name="periodo"  value="Vespertino">
+                    <label for="vespertino">Vespertino</label>
+                </div>
                 <label for="labelRegente">Regente da turma</label>
                 <input type="text" class="regente" placeholder="Digite o regente da turma" required>
 
-                <input type="button" class="salvarTurma" value="Salvar">
+                <input type="button" class="btnSalvar" value="Salvar">
             </form>
         </div>
     </div>
-    <script src="Statics turmas/js/Cadastrar turmas.js"></script>       
-</div>
+
+    <div id="turmas"></div>
+
+    <script src="Statics turmas/js/Cadastrar turmas.js"></script>    
 </body>
 </html>
