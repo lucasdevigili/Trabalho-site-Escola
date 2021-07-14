@@ -1,3 +1,76 @@
-.header {
+header {
+    text-align: center;
+}
+
+header img {
     border-radius: 100%;
+}
+
+header h1 {
+    cursor: default;
+}
+
+.botao1{
+    margin: 30px;
+    cursor: pointer;
+}
+
+.botao1:hover {
+    background-color: #b3b2b2;
+}
+
+span{
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+span:hover{
+    color: rgb(255, 0, 0);
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.185);   
+}
+
+form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label{
+    padding: 10px;
+}
+
+input{
+    border: none;
+    background-color: rgba(95, 91, 91, 0.192);
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+.btnEntrar{
+    display: block;
+    background-color: rgba(69, 69, 76, 0.582);
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btnEntrar:hover{
+    background-color: rgb(40, 223, 3);
+    color: white;
+}
+
+a {
+    text-decoration: none;
 }
