@@ -218,6 +218,11 @@ a {
     width: 100%;
     text-align: center;
     padding-bottom: 30px;
+    /* display: grid;
+    grid-template-areas: 
+    "endereco instagram",
+    "email faceboock",
+    "telefone twitter"; */
 }
 
 .footer p {
@@ -230,3 +235,26 @@ a {
     margin-top: 25px;
 }
 
+/* .local {
+    grid-area: endereco;
+}
+
+.email {
+    grid-area: email;
+}
+
+.telefone {
+    grid-area: telefone;
+}
+
+.instagram {
+    grid-area: instagram;
+}
+
+.faceboock {
+    grid-area: faceboock;
+}
+
+.twitter {
+    grid-area: twitter;
+} */
