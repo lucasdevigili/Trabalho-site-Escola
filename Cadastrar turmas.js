@@ -1,3 +1,5 @@
+import { Turma } from "./Turma.js"
+
 //Criando a função para o botão
 document.querySelector(".botao1").addEventListener("click", () => showModal(salvarTurma))
 
@@ -74,18 +76,10 @@ function editarTurma(turma) {
     document.querySelector(".modal").style.cssText = ""
 }
 
-numeroTurma = document.querySelector("numeroTurma")
+// numeroTurma = document.querySelector("numeroTurma")
 
 
-class Turma {
-    constructor (numeroTurma, nomeTurma, periodoTurma, regente){
-        this.numeroTurma = numeroTurma
-        this.nomeTurma = nomeTurma
-        this.periodoTurma = periodoTurma
-        this.regente = regente
-        this.alunos = []
-    }
-}
+
 
 // Função para adicionar uma turma
 function adicionarTurma(turma) {
@@ -96,7 +90,7 @@ function adicionarTurma(turma) {
 }
 
 function carregaTurmas() {
-    const divTurmas = document.querySelector("#turmas")
+    const divTurmas = document.querySelector("#turmas")    
     
     if (divTurmas.innerHTML) {
         console.log("vazio")

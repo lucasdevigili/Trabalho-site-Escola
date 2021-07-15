@@ -1,17 +1,50 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+    background-color: rgba(245, 222, 179, 0.5);
+}
+
 header {
     text-align: center;
+    background-image: url(barnard-castle-school.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    align-items: center;
+    transition: all 2s; 
 }
+
+.logo {
+    margin-top: 10px;
+}
+
 
 header img {
     border-radius: 100%;
+
 }
 
-header h1 {
+nav {
     cursor: default;
+    color: black;
+    text-align: center;
+}
+
+.erro{
+    color: red;
+}
+
+#alunos {
+    margin: 30px 160px;
 }
 
 .botao1{
-    margin: 30px;
+    margin-left: 160px;
     cursor: pointer;
 }
 
@@ -26,7 +59,7 @@ span:hover{
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
@@ -41,12 +74,6 @@ form{
     background-color: aliceblue;
     padding: 20px;
     border-radius: 10px;
-}
-
-.horario{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 }
 
 label{
@@ -87,4 +114,16 @@ input{
 .editar{
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+#voltar {
+    margin-top: 0px;
+    margin-right: 1500px;
+    cursor: pointer;
+
+}
+
+.voltar {
+    margin-top: 15px;
+    cursor: pointer;
 }

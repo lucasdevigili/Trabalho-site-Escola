@@ -1,3 +1,6 @@
+import { Aluno } from "./Aluno.js"
+import { Turma } from "./Turma.js"
+
 //Criando a função para o botão
 document.querySelector(".botao1").addEventListener("click", () => showModal(salvarAluno))
 
@@ -8,7 +11,23 @@ document.querySelector("#botaoDesaparecer").addEventListener("click", () => {
 })
 
 
-let alunos = JSON.parse(localStorage.getItem("alunos")) || []
+let turmas = JSON.parse(localStorage.getItem("turmas")) || []
+
+
+/**
+ * Retorna um array com os alunos da turma 
+ * @returns {Array<Aluno>} Um vetor com os alunos da turma selecionada
+ */
+function obtemAlunosTurma() {    
+    let numeroTurma = +new URLSearchParams(location.search).get("numeroTurma")
+    console.log(numeroTurma)
+    for (let turma of turmas) {
+        console.log(turma.numeroTurma)
+        console.log(turma.alunos)
+        if (turma.numeroTurma === numeroTurma) return turma.alunos
+    }
+    
+}
 
 
 function showModal(callback, aluno) {
@@ -32,9 +51,7 @@ function showModal(callback, aluno) {
 
 
 function salvarAluno() {
-    document.querySelector("#botaoDesaparecer")
-    document.querySelector("#id01").hidden = true 
-    document.querySelector(".modal").style.cssText = ""
+    
 
     // Obtendo os valores do input
     let matricula = +document.querySelector(".matricula").value;
@@ -47,9 +64,20 @@ function salvarAluno() {
     let media = (nota1 + nota2 + nota3) / 3
     let aluno = new Aluno(matricula, nomeAluno, email, telefone, nota1, nota2, nota3, media)
 
-    alunos.push(aluno)   
+    if(!document.querySelector(".email").validity.valid) {
+        const erro = document.querySelector(".erro")
+        erro.textContent = "Por favor digite um email válido"
+        return
+    }
+
+    document.querySelector("#botaoDesaparecer")
+    document.querySelector("#id01").hidden = true 
+    document.querySelector(".modal").style.cssText = ""
     
-    localStorage.setItem("alunos", JSON.stringify(alunos))
+    let alunos = obtemAlunosTurma()
+    alunos.push(aluno)
+    console.log(turmas)
+    localStorage.setItem("turmas", JSON.stringify(turmas))
     
     adicionarAluno(aluno)
     document.querySelector("#form").reset()
@@ -59,6 +87,7 @@ function salvarAluno() {
  * @todo Implemetar essa função
  */
 function editarAluno(aluno) {
+    console.log(aluno)
     aluno.matricula = +document.querySelector(".matricula").value;
     aluno.nomeAluno = document.querySelector(".nomeAluno").value;
     aluno.email = document.querySelector(".email").value
@@ -67,7 +96,9 @@ function editarAluno(aluno) {
     aluno.nota2 = document.querySelector(".nota2").value;
     aluno.nota3 = document.querySelector(".nota3").value;
 
-    localStorage.setItem("alunos", JSON.stringify(alunos))
+
+
+    localStorage.setItem("turmas", JSON.stringify(turmas))
 
     document.querySelector("#form").reset()
     carregaAlunos()
@@ -77,42 +108,34 @@ function editarAluno(aluno) {
     document.querySelector(".modal").style.cssText = ""
 }
 
-matricula = document.querySelector("matricula")
+// matricula = document.querySelector("matricula")
 
 
-class Aluno {
-    constructor (matricula, nomeAluno, email, telefone, nota1, nota2, nota3, media){
-        this.matricula = matricula
-        this.nomeAluno = nomeAluno
-        this.email = email
-        this.telefone = telefone
-        this.nota1 = nota1
-        this.nota2 = nota2
-        this.nota3 = nota3
-        this.media = media
-    }
-}
+
 
 // Função para adicionar um aluno
 function adicionarAluno(aluno) {
     const divAluno = document.createElement("div")
     divAluno.className = "aluno"
-    divAluno.insertAdjacentHTML("afterbegin", `<button class = "botaoExcluir">x</button><p>Matrícula: ${aluno.matricula}</p><p>Nome: ${aluno.nomeAluno}</p><p>E-mail: ${aluno.email}</p><p>Telefone: ${aluno.telefone}</p><p>Nota 1: ${aluno.nota1}</p><p>Nota 2: ${aluno.nota2}</p><p>Nota 3: ${aluno.nota3}</p><p>Media: ${aluno.media.toFixed(2)}</p><button class = "editar">Editar</button>`)    
+    divAluno.insertAdjacentHTML("afterbegin", `<button class = "botaoExcluir">x</button><p class = matricula>Matrícula: ${aluno.matricula}</p><p>Nome: ${aluno.nomeAluno}</p><p>E-mail: ${aluno.email}</p><p>Telefone: ${aluno.telefone}</p><p>Nota 1: ${aluno.nota1}</p><p>Nota 2: ${aluno.nota2}</p><p>Nota 3: ${aluno.nota3}</p><p>Média: ${aluno.media.toFixed(2)}</p><button class = "editar">Editar</button>`)    
     document.querySelector("#alunos").append(divAluno)  
 }
 
 function carregaAlunos() {
     const divAlunos = document.querySelector("#alunos")
     
+    let alunos = obtemAlunosTurma()
+    console.log(alunos)
+
     if (divAlunos.innerHTML) {
         divAlunos.innerHTML = ""
+        for (let aluno of alunos) {            
+                adicionarAluno(aluno)            
+        }        
+    } else {                
         for (let aluno of alunos) {
             adicionarAluno(aluno)
-        }        
-    } else {        
-        for (let aluno of alunos) {
-            adicionarAluno(aluno)
-        }        
+        }                
     } 
     
 }
@@ -129,15 +152,19 @@ document.querySelector("#alunos").addEventListener("click", event => {
 
      if (event.target.className === "editar") {        
         const pMatricula = event.target.closest(".aluno").querySelector(".matricula")        
-        let matricula = +pMatricula.textContent.split(":")[1]        
+        let matricula = +pMatricula.textContent.split(": ")[1]        
+        console.log(matricula)
 
-        let aluno = buscaAluno(matricula)        
+        let aluno = buscaAluno(matricula) 
+        console.log(aluno)       
         showModal(editarAluno, aluno)
      }
 })
 
 function buscaAluno(matricula) {
-    for (let aluno of alunos) {        
+    let alunos = obtemAlunosTurma()
+    console.log(alunos)
+    for (let aluno of alunos) {
         if (aluno.matricula === matricula) {
             return aluno
         }

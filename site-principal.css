@@ -1,13 +1,53 @@
-header {
+body {
+    background-color: rgba(245, 222, 179, 0.5);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
     text-align: center;
+    min-height: 585px; 
+    background-attachment: fixed;
+    background-image: url(barnard-castle-school.jpg);
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    transition: all 2s; 
+    margin: 0px;
+    width: 100%;
+
+} 
+ 
+
+.logo {
+    margin-top: 10px;
+    position: sticky;
 }
 
 header img {
     border-radius: 100%;
+
 }
 
-header h1 {
+nav {
     cursor: default;
+    color: rgb(43, 38, 38);
+    text-align: center;
+    font-size: 30px;
+    display: grid;
+    grid-template-areas: 
+    "h1 h1 botao";
+    align-items: center;
+    padding-left: 300px;
+    background-color: rgba(245, 222, 179, 0.288);
+}
+
+.h1 {
+    grid-area: h1;
+
+}
+
+.botao1 {
+    grid-area: botao;
 }
 
 .botao1{
@@ -30,15 +70,16 @@ span:hover{
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.185);   
+    background-color: rgba(0, 0, 0, 0.185);  
+    z-index: 1; 
 }
 
-form{
+#form{
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -47,11 +88,11 @@ form{
     border-radius: 10px;
 }
 
-label{
+#form label{
     padding: 10px;
 }
 
-input{
+#form input{
     border: none;
     background-color: rgba(95, 91, 91, 0.192);
     border-radius: 10px;
@@ -74,3 +115,118 @@ input{
 a {
     text-decoration: none;
 }
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.1s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.bolinhas {
+    text-align:center;
+    margin-bottom: 50px;
+}
+
+.mySlides img {
+    margin-top: 50px;
+    width:40%;
+    height: 250px;
+}
+
+.contato {
+    background-color: rgba(231, 185, 99, 0.507);
+    padding: 10px;
+    text-align: center;
+}
+
+.contato p {
+    font-size: 20px;
+}
+
+.enviarCTT input {
+    margin-top: 0px;
+    border-radius: 0pc;
+    border: 0px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.enviar {
+    cursor: pointer;
+}
+
+.enviar:hover {
+    background-color: #b3b2b2; 
+}
+
+.localizacao {
+    margin-left: 0px;
+    background-color: rgba(231, 185, 99, 0.507);
+}
+
+.localizacao iframe {
+    margin-bottom: 50px;
+}
+
+.footer {
+    background-color: wheat;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.footer p {
+    margin: 0px;
+    display: inline-block;
+    margin-right: 15px;
+    margin-left: 3px;
+    font-weight: normal;
+    font-size: 22px;
+    margin-top: 25px;
+}
+
