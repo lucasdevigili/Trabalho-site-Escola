@@ -11,7 +11,7 @@ body {
     background-size: cover;
     background-position: center;
     align-items: center;
-    transition: all 2s; 
+    transition: all 2s;
     margin: 0px;
     width: 100%;
 
@@ -143,6 +143,7 @@ a {
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.1s ease;
+  cursor: default;
 }
 
 .active {
@@ -170,6 +171,7 @@ a {
 .bolinhas {
     text-align:center;
     margin-bottom: 50px;
+    cursor: default;
 }
 
 .mySlides img {
